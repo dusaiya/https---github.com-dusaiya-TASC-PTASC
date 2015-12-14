@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configfile>
+        <dataSetParameters>
+                <trainFileName desc="训练集文件">configInfo/trainFile</trainFileName>
+                <testFileName desc="测试集文件">newAllAscTweetsOut/SpecialDomain/Ff/Feature/feature.spark</testFileName>
+                <topicwordFile desc="话题相关情感词库">SpecialDomain/alltopicword</topicwordFile>
+
+                <classifyStatResultDir desc="存储结果用于结果分析">result/Ff</classifyStatResultDir>
+                <positivetopicwordweightfile  desc="学习得到到正向情感词及权重">result/Ff/positiveWordWeight</positivetopicwordweightfile>
+                <neutraltopicwordweightfile>result/Ff/neutralWordWeight</neutraltopicwordweightfile>
+                <negativetopicwordweightfile>result/Ff/negativeWordWeight</negativetopicwordweightfile>
+
+                <tweetWordStatFile>SpecialDomain/Ff/configInfo/tweetWordStat</tweetWordStatFile>
+            <trainTweetWordStatFile>configInfo/trainTweetWordStat</trainTweetWordStatFile>
+            <topicWordFreqStatFile>SpecialDomain/Ff/configInfo/topicWordFreqStat</topicWordFreqStatFile>
+            <trainTopicWordFreqStatFile>configInfo/trainTopicWordFreqStat</trainTopicWordFreqStatFile>
+
+        </dataSetParameters>
+
+        <featureParameter desc="特征集文件位置为0的特征是属性号，第一个特征就是公共情感词集的第一个词">
+                <emocValuePosition desc="表情符号非文本特征位置">25000</emocValuePosition>
+                <numNegativeWordsPosition desc="否定词词特征位置">25001</numNegativeWordsPosition>
+                <parentattposition>25007</parentattposition>
+                <childrenattposition>25008</childrenattposition>
+                <topicPosition>25009</topicPosition>
+                 <labelPosition desc="数据标志位">25010</labelPosition>
+                <numPublicSentimentWord desc="公共情感词数量">5929</numPublicSentimentWord>
+                <numPrivateSentimentWord desc="非公共情感词数量">14125</numPrivateSentimentWord>
+                <numNontextFeature desc="非文本特征数量">10</numNontextFeature>
+        </featureParameter>
+
+        <modelParameter>
+                <numPeriod desc="表示的是共有多少个可计算时刻">10</numPeriod>
+                <classifyResultThreshold desc="tweet状态的分类结果，超过该阈值的加入进去">0.25</classifyResultThreshold>
+                <numTopKTestData2TrainSet desc="每次迭代，取前k条tweet状态从测试集转入到训练集">5</numTopKTestData2TrainSet>
+                <maxIteration desc="每一个时刻最大的迭代次数">50</maxIteration>
+                <numTopKPrivateWord desc="每过一个时刻，添加的非公共情感词的个数">30</numTopKPrivateWord>
+        </modelParameter>
+
+        <visulizationParameter>
+                <numLayer>41</numLayer>
+        </visulizationParameter>
+
+</Configfile>
